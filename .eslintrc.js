@@ -24,7 +24,7 @@ module.exports = {
   plugins: ['react', 'jsx-a11y', 'import', 'prettier', 'tailwindcss'],
   rules: {
     'tailwindcss/classnames-order': 'warn',
-    'tailwindcss/no-custom-classname': 'warn',
+    'tailwindcss/no-custom-classname': ['warn', { whitelist: ['font-inter'] }],
     'tailwindcss/no-contradicting-classname': 'error',
     'import/order': ['warn', { 'newlines-between': 'always' }],
     'react/self-closing-comp': 'warn',

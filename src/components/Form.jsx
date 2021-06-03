@@ -12,7 +12,7 @@ function Form() {
           type='text'
         />
       </div>
-      <button className='bg-emerald-500 text-indigo-200 font-bold py-4 px-8 rounded-full my-6 text-xl text-center hover:bg-emerald-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-indigo-900 focus:ring-offset-2' type='submit'>Generar agenda</button>
+      <button className='bg-emerald-500 text-indigo-50 font-bold py-4 px-8 rounded-full my-6 text-xl text-center hover:bg-emerald-600 hover:text-indigo-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-indigo-900 focus:ring-offset-2' type='submit'>Generar agenda</button>
     </form>
   );
 }

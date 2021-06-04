@@ -3,14 +3,15 @@ import * as React from 'react';
 import Container from './components/Container';
 import Footer from './components/Footer';
 import Form from './components/Form';
+import Schedule from './components/Schedule';
 
 function App() {
-  const [schedule, setSchedule] = React.useState({
+  const [{ data, error, status }, setSchedule] = React.useState({
     data: null,
     error: null,
     status: 'idle',
   });
-
+  console.log(data);
   return (
     <Container>
       <main>
@@ -25,6 +26,7 @@ function App() {
         </section>
         <Form setSchedule={setSchedule} />
       </main>
+      {data && <Schedule data={data} />}
       <Footer />
     </Container>
   );

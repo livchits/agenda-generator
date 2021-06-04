@@ -14,7 +14,10 @@ function Schedule({ data }) {
   return (
     <section className='flex-1 p-10 bg-yellow-100 rounded-xl'>
       <p className='text-2xl font-bold text-center'>
-        Agenda de {hasPresidency ? 'Presidencia y ' : null} Ministerios del {formatedDate}
+        <strong>
+          Agenda de {hasPresidency ? 'Presidencia y ' : null} Ministerios del{' '}
+          {formatedDate}
+        </strong>
       </p>
       <ul>
         {data.map((dependencySchedule) => {

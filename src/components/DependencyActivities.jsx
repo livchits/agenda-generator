@@ -7,14 +7,24 @@ function DependencyActivities({ dependencySchedule }) {
 
   return (
     <li>
-      <h2>{dependencyName}:</h2>
+      <br />
+      <p className='font-bold'>
+        <strong className='underline'>{dependencyName}:</strong>
+      </p>
+      <br />
       {scheduleTuples.map(([time, activity]) => {
         if (activity !== dependencyName) {
           return (
-            <p key={activity}>
-              {time}
-              {time ? ':' : null} {activity}
-            </p>
+            <div key={activity}>
+              <p>
+                <strong>
+                  {time}
+                  {time ? ':' : null}
+                </strong>{' '}
+                {activity}
+              </p>
+              <br />
+            </div>
           );
         }
       })}

@@ -1,18 +1,26 @@
 import * as React from 'react';
 
+import Container from './components/Container';
+import Footer from './components/Footer';
+import Form from './components/Form';
+
 function App() {
   return (
-    <main>
-      <h1>Generador de agenda</h1>
-      <p>
-        Ingrese la URL de un archivo CSV y obtenga la agenda en dos versiones: texto con
-        formato y lista para enviar por Whatsapp
-      </p>
-      <form action=''>
-        <input id='csv-url' name='csv-url' type='text' />
-        <button type='submit'>Dame la agenda</button>
-      </form>
-    </main>
+    <Container>
+      <main>
+        <section className='px-2 text-center'>
+          <h1 className='py-8 mt-2 text-4xl font-black text-white'>
+            Generador de agenda
+          </h1>
+          <p className='text-lg leading-snug text-indigo-200'>
+            Obtenga la agenda en dos versiones: texto con formato y para enviar por
+            Whatsapp
+          </p>
+        </section>
+        <Form />
+      </main>
+      <Footer />
+    </Container>
   );
 }
 

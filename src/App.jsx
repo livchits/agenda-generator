@@ -11,7 +11,7 @@ function App() {
     error: null,
     status: 'idle',
   });
-  console.log(data);
+
   return (
     <Container>
       <main>

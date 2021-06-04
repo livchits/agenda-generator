@@ -5,6 +5,12 @@ import Footer from './components/Footer';
 import Form from './components/Form';
 
 function App() {
+  const [schedule, setSchedule] = React.useState({
+    data: null,
+    error: null,
+    status: 'idle',
+  });
+
   return (
     <Container>
       <main>
@@ -17,7 +23,7 @@ function App() {
             Whatsapp
           </p>
         </section>
-        <Form />
+        <Form setSchedule={setSchedule} />
       </main>
       <Footer />
     </Container>

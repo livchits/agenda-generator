@@ -1,30 +1,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Papa from 'papaparse';
 
-import sanitizeObject from '../utils/sanitizeObject';
+import parseCSV from '../utils/parseCSV';
 
 function Form({ setSchedule }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { value: csvUrl } = event.target.elements['csv-url'];
 
-    Papa.parse(csvUrl, {
-      download: true,
-      header: true,
-      dinamicTyping: true,
-      skipEmptyLines: true,
-      worker: true,
-      complete: ({ data }) => {
-        setSchedule((previousSchedule) => ({ ...previousSchedule, status: 'pending' }));
-        const sanitizedData = data.map(sanitizeObject);
-        setSchedule((previousSchedule) => ({
-          ...previousSchedule,
-          status: 'complete',
-          data: sanitizedData,
-        }));
-      },
-    });
+    parseCSV(csvUrl, setSchedule);
   };
 
   return (

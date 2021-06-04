@@ -2,10 +2,12 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import formatActivitiesTime from '../utils/formatActivitiesTime';
+import sortByTime from '../utils/sortByTime';
 
 function DependencyActivities({ dependencySchedule, whatsapp }) {
   const scheduleTuples = Object.entries(dependencySchedule);
   const activitesWithTimeFormated = formatActivitiesTime(scheduleTuples);
+  const sortedActivites = [...activitesWithTimeFormated.sort(sortByTime)];
   const dependencyName = scheduleTuples[0][1];
 
   return (
@@ -18,7 +20,7 @@ function DependencyActivities({ dependencySchedule, whatsapp }) {
         </strong>
       </p>
       <br />
-      {activitesWithTimeFormated.map(([time, activity]) => {
+      {sortedActivites.map(([time, activity]) => {
         if (activity !== dependencyName) {
           return (
             <div key={activity}>

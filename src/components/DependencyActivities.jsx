@@ -1,8 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
+import formatActivitiesTime from '../utils/formatActivitiesTime';
+
 function DependencyActivities({ dependencySchedule }) {
   const scheduleTuples = Object.entries(dependencySchedule);
+  const activitesWithTimeFormated = formatActivitiesTime(scheduleTuples);
   const dependencyName = scheduleTuples[0][1];
 
   return (
@@ -12,7 +15,7 @@ function DependencyActivities({ dependencySchedule }) {
         <strong className='underline'>{dependencyName}:</strong>
       </p>
       <br />
-      {scheduleTuples.map(([time, activity]) => {
+      {activitesWithTimeFormated.map(([time, activity]) => {
         if (activity !== dependencyName) {
           return (
             <div key={activity}>

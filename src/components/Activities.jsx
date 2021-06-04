@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 
 import DependencyActivities from './DependencyActivities';
 
-function Activities({ hasPresidency, formatedDate, data }) {
+function Activities({ hasPresidency, formatedDate, data, whatsapp }) {
   return (
-    <section className='flex-1 p-10 bg-yellow-100 rounded-xl'>
+    <article>
       <p className='text-2xl font-bold text-center'>
         <strong>
+          {whatsapp && '*'}
           Agenda de {hasPresidency ? 'Presidencia y ' : null} Ministerios del{' '}
           {formatedDate}
+          {whatsapp && '*'}
         </strong>
       </p>
       <ul>
@@ -19,11 +21,12 @@ function Activities({ hasPresidency, formatedDate, data }) {
             <DependencyActivities
               key={dependencyName}
               dependencySchedule={dependencySchedule}
+              whatsapp={whatsapp}
             />
           );
         })}
       </ul>
-    </section>
+    </article>
   );
 }
 
@@ -31,6 +34,7 @@ Activities.propTypes = {
   hasPresidency: PropTypes.bool,
   formatedDate: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
+  whatsapp: PropTypes.bool.isRequired,
 };
 
 export default Activities;

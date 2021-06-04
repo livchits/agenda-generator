@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import formatActivitiesTime from '../utils/formatActivitiesTime';
 
-function DependencyActivities({ dependencySchedule }) {
+function DependencyActivities({ dependencySchedule, whatsapp }) {
   const scheduleTuples = Object.entries(dependencySchedule);
   const activitesWithTimeFormated = formatActivitiesTime(scheduleTuples);
   const dependencyName = scheduleTuples[0][1];
@@ -12,7 +12,10 @@ function DependencyActivities({ dependencySchedule }) {
     <li>
       <br />
       <p className='font-bold'>
-        <strong className='underline'>{dependencyName}:</strong>
+        <strong className='underline'>
+          {whatsapp && '*'}
+          {dependencyName}:{whatsapp && '*'}
+        </strong>
       </p>
       <br />
       {activitesWithTimeFormated.map(([time, activity]) => {
@@ -21,8 +24,10 @@ function DependencyActivities({ dependencySchedule }) {
             <div key={activity}>
               <p>
                 <strong>
+                  {whatsapp && time && '*'}
                   {time}
-                  {time ? ':' : null}
+                  {time ? ':' : ''}
+                  {whatsapp && time && '*'}
                 </strong>{' '}
                 {activity}
               </p>
@@ -35,6 +40,9 @@ function DependencyActivities({ dependencySchedule }) {
   );
 }
 
-DependencyActivities.propTypes = { dependencySchedule: PropTypes.object.isRequired };
+DependencyActivities.propTypes = {
+  dependencySchedule: PropTypes.object.isRequired,
+  whatsapp: PropTypes.bool.isRequired,
+};
 
 export default DependencyActivities;

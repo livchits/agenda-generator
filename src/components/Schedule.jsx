@@ -12,7 +12,21 @@ function Schedule({ data }) {
   const formatedDate = getFormatedDate();
 
   return (
-    <Activities data={data} formatedDate={formatedDate} hasPresidency={hasPresidency} />
+    <section className='flex-1 p-10 bg-yellow-100 rounded-xl'>
+      <Activities
+        data={data}
+        formatedDate={formatedDate}
+        hasPresidency={hasPresidency}
+        whatsapp={true}
+      />
+      <hr className='py-6' />
+      <Activities
+        data={data}
+        formatedDate={formatedDate}
+        hasPresidency={hasPresidency}
+        whatsapp={false}
+      />
+    </section>
   );
 }
 

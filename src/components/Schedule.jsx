@@ -1,11 +1,21 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
+import getFormatedDate from '../utils/getFormatedDate';
+
 import DependencyActivities from './DependencyActivities';
 
 function Schedule({ data }) {
+  const hasPresidency = data.find(
+    (depencyData) => depencyData['Organismo'] === 'Presidencia'
+  );
+  const formatedDate = getFormatedDate();
+
   return (
-    <section>
+    <section className='flex-1 p-10 bg-yellow-100 rounded-xl'>
+      <p className='text-2xl font-bold text-center'>
+        Agenda de {hasPresidency ? 'Presidencia y ' : null} Ministerios del {formatedDate}
+      </p>
       <ul>
         {data.map((dependencySchedule) => {
           const dependencyName = dependencySchedule['Organismo'];

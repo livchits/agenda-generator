@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import getFormatedDate from '../utils/getFormatedDate';
 
-import DependencyActivities from './DependencyActivities';
+import Activities from './Activities';
 
 function Schedule({ data }) {
   const hasPresidency = data.find(
@@ -12,25 +12,7 @@ function Schedule({ data }) {
   const formatedDate = getFormatedDate();
 
   return (
-    <section className='flex-1 p-10 bg-yellow-100 rounded-xl'>
-      <p className='text-2xl font-bold text-center'>
-        <strong>
-          Agenda de {hasPresidency ? 'Presidencia y ' : null} Ministerios del{' '}
-          {formatedDate}
-        </strong>
-      </p>
-      <ul>
-        {data.map((dependencySchedule) => {
-          const dependencyName = dependencySchedule['Organismo'];
-          return (
-            <DependencyActivities
-              key={dependencyName}
-              dependencySchedule={dependencySchedule}
-            />
-          );
-        })}
-      </ul>
-    </section>
+    <Activities data={data} formatedDate={formatedDate} hasPresidency={hasPresidency} />
   );
 }
 

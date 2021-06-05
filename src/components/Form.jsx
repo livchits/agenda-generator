@@ -1,9 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
+import { ReactComponent as Rolling } from '../assets/rolling.svg';
 import parseCSV from '../utils/parseCSV';
 
-function Form({ setSchedule }) {
+function Form({ setSchedule, status }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { value: csvUrl } = event.target.elements['csv-url'];
@@ -26,15 +27,18 @@ function Form({ setSchedule }) {
         />
       </div>
       <button
-        className='py-4 px-8 my-6 text-xl font-bold text-center text-indigo-50 hover:text-indigo-100 bg-emerald-500 hover:bg-emerald-600 rounded-full focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-indigo-900 transition-colors duration-200 focus:outline-none'
+        className='py-4 px-8 my-6 w-56 h-16 text-xl font-bold text-center text-indigo-50 hover:text-indigo-100 bg-emerald-500 hover:bg-emerald-600 rounded-full focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-indigo-900 transition-colors duration-200 focus:outline-none'
         type='submit'
       >
-        Generar agenda
+        {status === 'pending' ? <Rolling /> : 'Generar agenda'}
       </button>
     </form>
   );
 }
 
-Form.propTypes = { setSchedule: PropTypes.func.isRequired };
+Form.propTypes = {
+  setSchedule: PropTypes.func.isRequired,
+  status: PropTypes.string.isRequired,
+};
 
 export default Form;

@@ -3,6 +3,7 @@ import Papa from 'papaparse';
 import sanitizeObject from './sanitizeObject';
 
 function parseCSV(csvUrl, setSchedule) {
+  setSchedule((previousSchedule) => ({ ...previousSchedule, status: 'pending' }));
   Papa.parse(csvUrl, {
     download: true,
     header: true,
@@ -16,7 +17,6 @@ function parseCSV(csvUrl, setSchedule) {
         error,
       })),
     complete: ({ data }) => {
-      setSchedule((previousSchedule) => ({ ...previousSchedule, status: 'pending' }));
       const sanitizedData = data.map(sanitizeObject);
       setSchedule((previousSchedule) => ({
         ...previousSchedule,

@@ -24,7 +24,7 @@ function App() {
             Whatsapp
           </p>
         </section>
-        <Form setSchedule={setSchedule} />
+        <Form setSchedule={setSchedule} status={status} />
       </main>
       {data && <Schedule data={data} />}
       <Footer />

@@ -27,6 +27,11 @@ function App() {
         <Form setSchedule={setSchedule} status={status} />
       </main>
       {data && <Schedule data={data} />}
+      {error && (
+        <div className='py-6 mx-auto mb-20 w-4/5 sm:w-3/4 text-2xl font-bold text-center text-indigo-50 bg-indigo-400 rounded-xl'>
+          Ups... algo salió mal
+        </div>
+      )}
       <Footer />
     </Container>
   );

@@ -14,9 +14,12 @@ function DependencyActivities({ dependencySchedule, whatsapp }) {
     <li>
       <br />
       <p className='font-bold'>
-        <strong className='underline'>
-          {whatsapp && '*'}
-          {dependencyName}:{whatsapp && '*'}
+        <strong>
+          <u className='underline'>
+            {whatsapp && '*'}
+            {dependencyName}
+          </u>
+          :{whatsapp && '*'}
         </strong>
       </p>
       <br />

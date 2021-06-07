@@ -17,14 +17,14 @@ function Schedule({ data }) {
         data={data}
         formatedDate={formatedDate}
         hasPresidency={hasPresidency}
-        whatsapp={true}
+        whatsapp={false}
       />
       <hr className='py-6' />
       <Activities
         data={data}
         formatedDate={formatedDate}
         hasPresidency={hasPresidency}
-        whatsapp={false}
+        whatsapp={true}
       />
     </section>
   );

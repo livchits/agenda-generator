@@ -3,20 +3,28 @@ import PropTypes from 'prop-types';
 
 import { ReactComponent as Rolling } from '../assets/rolling.svg';
 import parseCSV from '../utils/parseCSV';
+import getTomorrowCsv from '../utils/getTomorrowCsv';
 
 function Form({ setSchedule, status }) {
   const [enableCustomUrl, setEnableCustomUrl] = React.useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { value: csvUrl } = event.target.elements['csv-url'];
 
+    const csvUrl = enableCustomUrl
+      ? event.target.elements['csv-url'].value
+      : getTomorrowCsv();
+    console.log(csvUrl);
     parseCSV(csvUrl, setSchedule);
   };
 
   const handleCheckBoxChange = () => {
     setEnableCustomUrl((enableCustomUrl) => !enableCustomUrl);
   };
+
+  const inputStyle = enableCustomUrl
+    ? 'bg-indigo-900 border-emerald-500'
+    : 'bg-gray-400 border-gray-400';
 
   return (
     <form className='my-8 text-center' onSubmit={handleSubmit}>
@@ -33,10 +41,7 @@ function Form({ setSchedule, status }) {
         />
         <input
           required
-          className={`p-1.5 mt-1 w-full leading-relaxed text-indigo-200  rounded-lg border-2  focus:border-transparent focus:ring-2 focus:ring-emerald-600 focus:ring-offset-1 focus:ring-offset-transparent focus:outline-none ${enableCustomUrl
-              ? 'bg-indigo-900 border-emerald-500'
-              : 'bg-gray-400 border-gray-400'
-            }`}
+          className={`${inputStyle} p-1.5 mt-1 w-full leading-relaxed text-indigo-200  rounded-lg border-2  focus:border-transparent focus:ring-2 focus:ring-emerald-600 focus:ring-offset-1 focus:ring-offset-transparent focus:outline-none`}
           disabled={!enableCustomUrl}
           id='csv-url'
           name='csv-url'

@@ -14,7 +14,7 @@ function Form({ setSchedule, status }) {
     const csvUrl = enableCustomUrl
       ? event.target.elements['csv-url'].value
       : getTomorrowCsv();
-    console.log(csvUrl);
+
     parseCSV(csvUrl, setSchedule);
   };
 

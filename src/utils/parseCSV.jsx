@@ -1,5 +1,6 @@
 import Papa from 'papaparse';
 
+import removeObjectsWithoutActivities from './removeObjectsWithoutActivities';
 import sanitizeObject from './sanitizeObject';
 
 function parseCSV(csvUrl, setSchedule) {
@@ -18,10 +19,11 @@ function parseCSV(csvUrl, setSchedule) {
       })),
     complete: ({ data }) => {
       const sanitizedData = data.map(sanitizeObject);
+      const filteredData = sanitizedData.filter(removeObjectsWithoutActivities);
       setSchedule((previousSchedule) => ({
         ...previousSchedule,
         status: 'complete',
-        data: sanitizedData,
+        data: filteredData,
       }));
     },
   });

@@ -24,7 +24,7 @@ function Form({ setSchedule, status }) {
 
   const inputStyle = enableCustomUrl
     ? 'bg-indigo-900 border-emerald-500'
-    : 'bg-gray-400 border-gray-400';
+    : 'bg-gray-300 border-gray-400';
 
   return (
     <form className='my-8 text-center' onSubmit={handleSubmit}>
@@ -41,9 +41,9 @@ function Form({ setSchedule, status }) {
             type='checkbox'
             onChange={handleCheckBoxChange}
           />
-          <div className='flex flex-shrink-0 justify-center items-center mr-2 w-8 h-8 text-emerald-600 bg-indigo-100 rounded-md border-2 border-emerald-400 focus-within:border-emerald-600'>
+          <div className='flex flex-shrink-0 justify-center items-center mr-2 w-5 h-5 text-emerald-600 bg-indigo-100 rounded-md border-2 border-emerald-400 focus-within:border-emerald-600'>
             <svg
-              className='hidden w-4 h-4 pointer-events-none'
+              className='hidden w-3 h-3 pointer-events-none'
               version='1.1'
               viewBox='0 0 17 12'
               xmlns='http://www.w3.org/2000/svg'

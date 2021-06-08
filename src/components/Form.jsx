@@ -28,8 +28,8 @@ function Form({ setSchedule, status }) {
 
   return (
     <form className='my-8 text-center' onSubmit={handleSubmit}>
-      <div className='mx-auto w-5/6 text-left'>
-        <div className='flex relative items-center mr-4 mb-2 w-max'>
+      <div className='mx-auto w-5/6 sm:w-max text-left'>
+        <div className='flex relative items-center mr-4 mb-2'>
           <label className='mx-2 text-indigo-300' htmlFor='custom-url'>
             Usar url personalizada para el archivo .csv
           </label>

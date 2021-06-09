@@ -16,7 +16,10 @@ function Activities({ hasPresidency, formatedDate, data, whatsapp }) {
       </p>
       <ul>
         {data.map((dependencySchedule) => {
-          const dependencyName = dependencySchedule['Organismo'];
+          const dependencyKey = Object.keys(dependencySchedule).filter((key) =>
+            Number.isNaN(parseInt(key))
+          );
+          const dependencyName = dependencySchedule[dependencyKey];
           return (
             <DependencyActivities
               key={dependencyName}

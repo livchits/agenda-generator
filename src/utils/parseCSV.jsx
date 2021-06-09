@@ -1,6 +1,7 @@
 import Papa from 'papaparse';
 
-import removeObjectsWithoutActivities from './removeObjectsWithoutActivities';
+import removeObjectsWithoutActivities from '../../api/utils/removeObjectsWithoutActivities';
+
 import sanitizeObject from './sanitizeObject';
 
 function parseCSV(csvUrl, setSchedule) {

@@ -2,7 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import { ReactComponent as Rolling } from '../assets/rolling.svg';
-import parseCSV from '../utils/parseCSV';
 import getTomorrowCsv from '../../api/utils/getTomorrowCsv';
 
 function Form({ setSchedule, status }) {

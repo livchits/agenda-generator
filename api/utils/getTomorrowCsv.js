@@ -1,6 +1,5 @@
-import { DAYS } from '../constants';
-
-import getGoogleSheetUrl from './getGoogleSheetUrl';
+const { DAYS } = require('../constants');
+const { default: getGoogleSheetUrl } = require('./getGoogleSheetUrl');
 
 function getTomorrowCsv() {
   const day = new Date().getDay();

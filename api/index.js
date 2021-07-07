@@ -2,14 +2,11 @@ const Papa = require('papaparse');
 const axios = require('axios');
 
 const { default: sanitizeObject } = require('./utils/sanitizeObject');
-
-const {
-  default: removeObjectsWithoutActivities,
-} = require('./utils/removeObjectsWithoutActivities');
+const { default: removeObjectsWithoutActivities } = require('./utils/removeObjectsWithoutActivities');
 const { default: getTomorrowCsv } = require('./utils/getTomorrowCsv');
 
 module.exports = (req, res) => {
-  const csvUrl = req.body.csvUrl || getTomorrowCsv();
+  const csvUrl = req.body?.csvUrl || getTomorrowCsv();
 
   axios
     .get(csvUrl, {

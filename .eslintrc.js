@@ -21,7 +21,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'jsx-a11y', 'import', 'prettier', 'tailwindcss'],
+  plugins: ['react', 'jsx-a11y', 'import', 'tailwindcss', 'prettier'],
   rules: {
     'tailwindcss/classnames-order': 'warn',
     // 'tailwindcss/no-custom-classname': [

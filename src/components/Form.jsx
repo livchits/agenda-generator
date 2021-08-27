@@ -1,10 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import { ReactComponent as Rolling } from '../assets/rolling.svg';
 
-function Form({ status, setSchedule }) {
+function Form({ status, setCsvUrl }) {
   const [enableCustomUrl, setEnableCustomUrl] = React.useState(false);
 
   const handleSubmit = (event) => {
@@ -12,18 +11,7 @@ function Form({ status, setSchedule }) {
 
     const csvUrl = enableCustomUrl ? event.target.elements['csv-url'].value : null;
 
-    setSchedule((previousSchedule) => ({
-      ...previousSchedule,
-      status: 'pending',
-    }));
-
-    axios.get('/api', { params: { csvUrl } }).then(({ data }) => {
-      setSchedule((previousSchedule) => ({
-        ...previousSchedule,
-        data,
-        status: 'complete',
-      }));
-    });
+    setCsvUrl({ getScheduleEnable: true, csvUrl });
   };
 
   const handleCheckBoxChange = () => {
@@ -85,7 +73,7 @@ function Form({ status, setSchedule }) {
 
 Form.propTypes = {
   status: PropTypes.string.isRequired,
-  setSchedule: PropTypes.func.isRequired,
+  setCsvUrl: PropTypes.func.isRequired,
 };
 
 export default Form;

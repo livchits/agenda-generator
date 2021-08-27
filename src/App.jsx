@@ -4,13 +4,10 @@ import Container from './components/Container';
 import Footer from './components/Footer';
 import Form from './components/Form';
 import Schedule from './components/Schedule';
+import useGetSchedule from './hooks/useGetSchedule';
 
 function App() {
-  const [{ data, error, status }, setSchedule] = React.useState({
-    data: null,
-    error: null,
-    status: 'idle',
-  });
+  const { data, error, status, setCsvUrl } = useGetSchedule();
 
   return (
     <Container>
@@ -24,7 +21,7 @@ function App() {
             Whatsapp
           </p>
         </section>
-        <Form setSchedule={setSchedule} status={status} />
+        <Form setCsvUrl={setCsvUrl} status={status} />
       </main>
       {data && <Schedule data={data} />}
       {error && (

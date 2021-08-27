@@ -65,7 +65,11 @@ function Form({ status, setCsvUrl }) {
         className='py-4 px-8 my-6 w-56 h-16 text-xl font-bold text-center text-indigo-50 hover:text-indigo-100 bg-emerald-500 hover:bg-emerald-600 rounded-full focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-indigo-900 transition-colors duration-200 focus:outline-none'
         type='submit'
       >
-        {status === 'pending' ? <Rolling /> : 'Generar agenda'}
+        {status === 'pending' ? (
+          <Rolling className='inline animate-spin' />
+        ) : (
+          'Generar agenda'
+        )}
       </button>
     </form>
   );

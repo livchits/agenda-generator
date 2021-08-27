@@ -2,11 +2,13 @@ const Papa = require('papaparse');
 const axios = require('axios');
 
 const { default: sanitizeObject } = require('./utils/sanitizeObject');
-const { default: removeObjectsWithoutActivities } = require('./utils/removeObjectsWithoutActivities');
+const {
+  default: removeObjectsWithoutActivities,
+} = require('./utils/removeObjectsWithoutActivities');
 const { default: getTomorrowCsv } = require('./utils/getTomorrowCsv');
 
 module.exports = (req, res) => {
-  const csvUrl = req.body?.csvUrl || getTomorrowCsv();
+  const csvUrl = req.query?.csvUrl || getTomorrowCsv();
 
   axios
     .get(csvUrl, {
@@ -22,7 +24,7 @@ module.exports = (req, res) => {
         complete: ({ data }) => {
           const sanitizedData = data.map(sanitizeObject);
           const filteredData = sanitizedData.filter(removeObjectsWithoutActivities);
-          res.json({ data: filteredData });
+          res.json(filteredData);
         },
       });
     });

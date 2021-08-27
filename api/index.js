@@ -1,11 +1,9 @@
-const Papa = require('papaparse');
-const axios = require('axios');
+import axios from 'axios';
+import Papa from 'papaparse';
 
-const { default: sanitizeObject } = require('./utils/sanitizeObject');
-const {
-  default: removeObjectsWithoutActivities,
-} = require('./utils/removeObjectsWithoutActivities');
-const { default: getTomorrowCsv } = require('./utils/getTomorrowCsv');
+import getTomorrowCsv from './utils/getTomorrowCsv';
+import removeObjectsWithoutActivities from './utils/removeObjectsWithoutActivities';
+import sanitizeObject from './utils/sanitizeObject';
 
 module.exports = (req, res) => {
   const csvUrl = req.query?.csvUrl || getTomorrowCsv();

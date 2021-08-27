@@ -31,8 +31,8 @@ function Form({ status, setSchedule }) {
   };
 
   const inputStyle = enableCustomUrl
-    ? 'bg-indigo-900 border-emerald-500'
-    : 'bg-gray-300 border-gray-400';
+    ? 'bg-gray-300 border-gray-400'
+    : 'bg-indigo-900 border-emerald-500';
 
   return (
     <form className='my-8 text-center' onSubmit={handleSubmit}>
@@ -66,7 +66,7 @@ function Form({ status, setSchedule }) {
         </div>
         <input
           required
-          className={`${inputStyle} p-1.5 mt-1 w-full leading-relaxed text-indigo-200  rounded-lg border-2  focus:border-transparent focus:ring-2 focus:ring-emerald-600 focus:ring-offset-1 focus:ring-offset-transparent focus:outline-none`}
+          className={`${inputStyle} p-2 mt-1 w-full leading-relaxed text-indigo-900  rounded-lg border-2  focus:border-transparent focus:ring-2 focus:ring-emerald-600 focus:ring-offset-1 focus:ring-offset-transparent focus:outline-none`}
           disabled={!enableCustomUrl}
           id='csv-url'
           name='csv-url'

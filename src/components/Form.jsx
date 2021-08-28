@@ -24,14 +24,14 @@ function Form({ status, setCsvUrl }) {
 
   return (
     <form className='my-8 text-center' onSubmit={handleSubmit}>
-      <div className='mx-auto w-5/6 sm:w-max text-left'>
-        <div className='flex relative items-center mr-4 mb-2'>
-          <label className='mx-2 text-indigo-300' htmlFor='custom-url'>
+      <div className='mx-auto w-11/12 sm:w-max text-left'>
+        <div className='flex relative items-center mb-2'>
+          <label className='mr-2 text-indigo-300' htmlFor='custom-url'>
             Usar url personalizada para el archivo .csv
           </label>
           <input
             checked={enableCustomUrl}
-            className='absolute right-1 w-8 h-8 opacity-0'
+            className='absolute right-2.5 w-6 h-6 opacity-0'
             id='custom-url'
             name='custom-url'
             type='checkbox'
@@ -52,15 +52,15 @@ function Form({ status, setCsvUrl }) {
             </svg>
           </div>
         </div>
-        <input
-          required
-          className={`${inputStyle} p-2 mt-1 w-full leading-relaxed text-indigo-900  rounded-lg border-2  focus:border-transparent focus:ring-2 focus:ring-emerald-600 focus:ring-offset-1 focus:ring-offset-transparent focus:outline-none`}
-          disabled={!enableCustomUrl}
-          id='csv-url'
-          name='csv-url'
-          type='text'
-        />
       </div>
+      <input
+        required
+        className={`${inputStyle} p-2 mt-1 w-full sm:w-11/12 leading-relaxed text-indigo-900 rounded-lg border-2  focus:border-transparent focus:ring-2 focus:ring-emerald-600 focus:ring-offset-1 focus:ring-offset-transparent focus:outline-none`}
+        disabled={!enableCustomUrl}
+        id='csv-url'
+        name='csv-url'
+        type='text'
+      />
       <button
         className='py-4 px-8 my-6 w-56 h-16 text-xl font-bold text-center text-indigo-50 hover:text-indigo-100 bg-emerald-500 hover:bg-emerald-600 rounded-full focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-indigo-900 transition-colors duration-200 focus:outline-none'
         type='submit'

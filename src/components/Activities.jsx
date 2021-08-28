@@ -9,8 +9,7 @@ function Activities({ hasPresidency, formatedDate, data, whatsapp }) {
       <p className='text-2xl font-bold text-center'>
         <strong>
           {whatsapp && '*🗓'}
-          Agenda de {hasPresidency ? 'Presidencia y ' : null} Ministerios del{' '}
-          {formatedDate}
+          Agenda de {hasPresidency && 'Presidencia y '} Ministerios del {formatedDate}
           {whatsapp && '*'}
         </strong>
       </p>

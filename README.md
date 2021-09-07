@@ -4,6 +4,8 @@ Se trata de una app hecha en React que consume datos de una API para generar tex
 
 El objetivo de la aplicación es obtener el texto de la agenda con dos formatos con solo presionar un botón y cargando los datos una sola vez. Antes esta tarea se realizaba en Google Docs y para obtener el resultado final era necesario duplicar el texto para darle los distintos formatos.
 
+![imagen](https://user-images.githubusercontent.com/48001346/132268028-7830ae29-dd44-4e07-97cb-e73761952d25.png)
+
 ## Herramientas utilizadas
 
 - React

@@ -2,8 +2,8 @@ import axios from 'axios';
 import Papa from 'papaparse';
 
 import getTomorrowCsv from './utils/getTomorrowCsv';
-import removeObjectsWithoutActivities from './utils/removeObjectsWithoutActivities';
-import sanitizeObject from './utils/sanitizeObject';
+import getObjectsWithActivities from './utils/getObjectsWithActivities';
+import removePropertiesWithFalsyValues from './utils/removePropertiesWithFalsyValues';
 
 module.exports = (req, res) => {
   const csvUrl = req.query?.csvUrl || getTomorrowCsv();
@@ -20,8 +20,8 @@ module.exports = (req, res) => {
         worker: true,
         error: (error) => error.message,
         complete: ({ data }) => {
-          const sanitizedData = data.map(sanitizeObject);
-          const filteredData = sanitizedData.filter(removeObjectsWithoutActivities);
+          const sanitizedData = data.map(removePropertiesWithFalsyValues);
+          const filteredData = sanitizedData.filter(getObjectsWithActivities);
           res.json(filteredData);
         },
       });

@@ -37,7 +37,7 @@ function Form({ status, setCsvUrl }) {
             type='checkbox'
             onChange={handleCheckBoxChange}
           />
-          <div className='flex flex-shrink-0 justify-center items-center mr-2 w-5 h-5 text-emerald-600 bg-indigo-100 rounded-md border-2 border-emerald-400 focus-within:border-emerald-600'>
+          <div className='flex flex-shrink-0 justify-center items-center mr-2 w-5 h-5 bg-indigo-100 rounded-md border-2 text-emerald-600 border-emerald-400 focus-within:border-emerald-600'>
             <svg
               className='hidden w-3 h-3 pointer-events-none'
               version='1.1'
@@ -62,7 +62,7 @@ function Form({ status, setCsvUrl }) {
         type='text'
       />
       <button
-        className='py-4 px-8 my-6 w-56 h-16 text-xl font-bold text-center text-indigo-50 hover:text-indigo-100 bg-emerald-500 hover:bg-emerald-600 rounded-full focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-indigo-900 transition-colors duration-200 focus:outline-none'
+        className='py-4 px-8 my-6 w-56 h-16 text-xl font-bold text-center text-indigo-50 hover:text-indigo-100 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-900 transition-colors duration-200 focus:outline-none bg-emerald-500 hover:bg-emerald-600 focus:ring-emerald-500'
         type='submit'
       >
         {status === 'pending' ? (

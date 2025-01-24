@@ -35,5 +35,8 @@
     "vite": "^2.5.1",
     "vite-plugin-fonts": "^0.2.2",
     "vite-plugin-svgr": "^0.4.0"
+  },
+  "engines": {
+    "node": ">=22.x"
   }
 }
